@@ -1,1 +1,1 @@
-angular.module("ngLearn", ['ui.bootstrap']);
+var app = angular.module("ngLearn", ['ui.bootstrap']);
