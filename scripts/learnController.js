@@ -1,5 +1,11 @@
 angular
       .module('ngLearn')
       .controller('learnController', function($scope, learnFactory) {
-          $scope.data = learnFactory.getLearn();
+          $scope.items;
+
+          learnFactory.getLearn().then(function(data) {
+            $scope.items = data.data;
+          }, function(error) {
+            console.log(error)
+          });﻿
       });

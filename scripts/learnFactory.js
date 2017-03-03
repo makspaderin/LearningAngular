@@ -1,14 +1,12 @@
 angular
       .module('ngLearn')
-      .factory('learnFactory', function(){
-        var learnData;
+      .factory('learnFactory', function($http){
 
         function getLearn(){
-          return learnData;
+          return $http.get('data/data.json');
         }
 
         return {
           getLearn: getLearn
         }
-
       });
