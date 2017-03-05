@@ -2,16 +2,22 @@
   {
     "name": "Maksim",
     "surname": "Paderin",
-    "pupsiness": 600
+    "pupsiness": 600,
+    "species": "a human",
+    "speciesicon": "glyphicon-user"
   },
   {
     "name": "Katya",
     "surname": "Ladeichshikova",
-    "pupsiness": 999
+    "pupsiness": 999,
+    "species": "a human",
+    "speciesicon": "glyphicon-user"
   },
   {
     "name": "Johhny",
     "surname": "Cat",
-    "pupsiness": 400
+    "pupsiness": 400,
+    "species": "an animal",
+    "speciesicon": "glyphicon-piggy-bank"
   }
 ]
