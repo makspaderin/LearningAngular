@@ -8,6 +8,12 @@ angular
             max: 1000
           }
 
+          $scope.newListing = {};
+          $scope.addItem = function(newListing) {
+            $scope.items.push(newListing);
+            $scope.newListing = {};
+          }
+
           learnFactory.getLearn().then(function(data) {
             $scope.items = data.data;
           }, function(error) {

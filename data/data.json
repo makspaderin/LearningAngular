@@ -4,20 +4,23 @@
     "surname": "Paderin",
     "pupsiness": 600,
     "species": "a human",
-    "speciesicon": "glyphicon-user"
+    "speciesicon": "glyphicon-user",
+    "image": "maksim"
   },
   {
     "name": "Katya",
     "surname": "Ladeichshikova",
     "pupsiness": 999,
     "species": "a human",
-    "speciesicon": "glyphicon-user"
+    "speciesicon": "glyphicon-user",
+    "image": "katya"
   },
   {
     "name": "Johhny",
     "surname": "Cat",
     "pupsiness": 400,
     "species": "an animal",
-    "speciesicon": "glyphicon-piggy-bank"
+    "speciesicon": "glyphicon-piggy-bank",
+    "image": "cat"
   }
 ]

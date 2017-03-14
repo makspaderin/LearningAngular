@@ -19,7 +19,7 @@
 
     <div class="container">
       <div class="col-sm-12 price-form">
-        <div class="row price-form-row" ng-if="!addListing">
+        <div class="row price-form-row" ng-if="addListing">
           <div class="col-sm-6">
             <div class="input-group">
               <span class="input-group-addon">Min Pupsiness</span>
@@ -56,12 +56,119 @@
             </div>
           </div>
         </div>
+        <button
+          class="btn btn-primary"
+          ng-click="addListing = !addListing"
+          ng-show="!addListing">Add Listing
+        </button>
+
+        <button
+          class="btn btn-danger"
+          ng-click="addListing = !addListing"
+          ng-show="addListing">Close
+        </button>
+
+          <div class="listing-form" ng-if="addListing">
+
+            <h3>Add a Listing</h3>
+
+            <div class="row listing-form-row">
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Name</span>
+                  <input
+                    type="text"
+                    placeholder="Enter the name"
+                    class="form-control"
+                    ng-model="newListing.name">
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Surname</span>
+                  <input
+                    type="text"
+                    placeholder="Enter the surname"
+                    class="form-control"
+                    ng-model="newListing.surname">
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Species</span>
+                  <select
+                    type="select"
+                    name="speciesType"
+                    id="speciesType"
+                    class="form-control"
+                    ng-model="newListing.species">
+                      <option value="A human">A human</option>
+                      <option value="An animal">An animal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row listing-form-row">
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Pupsiness</span>
+                  <textarea
+                    type="text"
+                    placeholder="Enter the pupsiness level"
+                    class="form-control"
+                    ng-model="newListing.pupsiness">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-sm-8">
+
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <span class="input-group-addon">Icon</span>
+                    <select
+                      type="select"
+                      name="iconType"
+                      id="iconType"
+                      class="form-control"
+                      ng-model="newListing.speciesicon">
+                        <option value="glyphicon-user">A human</option>
+                        <option value="glyphicon-piggy-bank">An animal</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <span class="input-group-addon">Image name</span>
+                    <input
+                      type="text"
+                      placeholder="Image name"
+                      class="form-control"
+                      ng-model="newListing.image">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <button
+              class="btn btn-primary listing-button"
+              ng-click="addItem(newListing)"
+              ng-show="addListing">Add
+            </button>
+            <pre>{{newListing | json}}</pre>
+          </div>
       </div>
     </div>
 
+
     <div class="container">
-      <div class="col-md-4" ng-repeat="item in items | learnFilter:pupsinessInfo">
+      <div class="col-md-4" ng-repeat="item in items | learnFilter:pupsinessInfo | orderBy: 'pupsiness'">
         <div class="thumbnail">
+          <img ng-src="images/{{item.image}}.jpg" alt="">
           <div class="caption">
             <h4>The name of the person is {{ item.name }}</h4>
             <h4>The family name of the person is {{ item.surname }}</h4>
