@@ -9,9 +9,27 @@ angular
           }
 
           $scope.newListing = {};
+
           $scope.addItem = function(newListing) {
             $scope.items.push(newListing);
             $scope.newListing = {};
+          }
+
+          $scope.editItem = function(item) {
+            $scope.editListing = true;
+            $scope.existingListing = item;
+          }
+
+          $scope.saveItemEdit = function() {
+            $scope.existingListing = {};
+            $scope.editListing = false;
+          }
+
+          $scope.deleteItem = function(listing) {
+            var index = $scope.item.indexOf(listing);
+            $scope.item.splice(index, 1);
+            $scope.existingListing = {};
+            $scope.editListing = false;
           }
 
           learnFactory.getLearn().then(function(data) {

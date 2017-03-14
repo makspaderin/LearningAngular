@@ -104,8 +104,8 @@
                     id="speciesType"
                     class="form-control"
                     ng-model="newListing.species">
-                      <option value="A human">A human</option>
-                      <option value="An animal">An animal</option>
+                      <option value="a human">A human</option>
+                      <option value="an animal">An animal</option>
                   </select>
                 </div>
               </div>
@@ -161,8 +161,104 @@
             </button>
             <pre>{{newListing | json}}</pre>
           </div>
-      </div>
+
+          <div class="listing-form" ng-if="editListing">
+
+           <h3>Edit Listing</h3>
+
+           <div class="row listing-form-row">
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Name</span>
+                 <input
+                  type="text"
+                  placeholder="Enter the name"
+                  class="form-control"
+                  ng-model="existingListing.name">
+               </div>
+             </div>
+
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Surname</span>
+                 <input
+                  type="text"
+                  placeholder="Enter the surname"
+                  class="form-control"
+                  ng-model="existingListing.surname">
+               </div>
+             </div>
+
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Pupsiness</span>
+                 <input
+                  type="text"
+                  placeholder="Enter the pupsiness"
+                  class="form-control"
+                  ng-model="existingListing.pupsiness">
+               </div>
+             </div>
+
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Species</span>
+                 <select
+                  type="select"
+                  name="species"
+                  id="species"
+                  class="form-control"
+                  ng-model="existingListing.species">
+                     <option value="A human">A human</option>
+                     <option value="An animal">An animal</option>
+                 </select>
+               </div>
+             </div>
+
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Species Icon</span>
+                 <select
+                  type="select"
+                  name="speciesicon"
+                  id="speciesicon"
+                  class="form-control"
+                  ng-model="existingListing.speciesicon">
+                     <option value="glyphicon-user">A human</option>
+                     <option value="glyphicon-piggy-bank">An animal</option>
+                 </select>
+               </div>
+             </div>
+
+             <div class="col-sm-4">
+               <div class="input-group">
+                 <span class="input-group-addon">Image name</span>
+                 <input
+                  type="text"
+                  placeholder="Enter the name of the image"
+                  class="form-control"
+                  ng-model="existingListing.image">
+               </div>
+             </div>
+
+           </div>
+
+             <button
+              class="btn btn-primary listing-button"
+              ng-click="saveItemEdit()"
+              ng-show="editListing">Save
+             </button>
+
+             <button
+              class="btn btn-danger listing-button"
+              ng-click="deleteItem(existingListing)"
+              ng-show="editListing">Delete
+             </button>
+
+           </div>
+
     </div>
+  </div>
 
 
     <div class="container">
@@ -177,6 +273,11 @@
               <h4><i class="glyphicon glyphicon-heart-empty"></i> The pupsiness level is {{ item.pupsiness }}</h4>
               <h4><i class="glyphicon {{item.speciesicon}}"></i> This object is {{item.species}}</h4>
             </div>
+            <button
+              class="btn btn-xs btn-primary"
+              ng-show="showDetails"
+              ng-click="editItem(item)">Edit
+            </button>
           </div>
         </div>
       </div>
